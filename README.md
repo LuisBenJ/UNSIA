@@ -49,6 +49,10 @@ node server.js
 ```
 http://localhost:3000
 ```
+---
+## Link del video
+
+https://www.youtube.com/watch?v=a_ta8ULo7DI
 
 ---
 
