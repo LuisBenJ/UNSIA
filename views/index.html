@@ -5,60 +5,128 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingreso a Licenciatura — UNSIS</title>
-
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
     <script>
         (function () { if (!window.chatbase || window.chatbase("getState") !== "initialized") { window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = [] } window.chatbase.q.push(arguments) }; window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } }) } const onLoad = function () { const script = document.createElement("script"); script.src = "https://www.chatbase.co/embed.min.js"; script.id = "Dakq9ZfSABEVAfNeeUoju"; script.domain = "www.chatbase.co"; document.body.appendChild(script) }; if (document.readyState === "complete") { onLoad() } else { window.addEventListener("load", onLoad) } })();
     </script>
-
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../public/css/styles.css">
 </head>
 
 <body>
 
-    <nav class="nav">
-        <div class="nav-logo">
-            <div class="nav-logo-circle">UNSIS</div>
-            <div class="nav-logo-text">
-                Universidad de la Sierra Sur
-                <div class="nav-logo-sub">docendo discimus · Miahuatlán de Porfirio Díaz</div>
-            </div>
-        </div>
+    <div class="banner">
+        <img src="../public/img/unsis.jpg" alt="Banner UNSIS">
+    </div>
 
-        <ul class="nav-links">
-            <li><a href="#">Nuestra universidad</a></li>
-            <li><a href="#">Directorio</a></li>
-            <li><a href="#" class="active">Enseñanza</a></li>
-        </ul>
-    </nav>
+    <div class="quick-bar">
+        <a href="#">NUESTRA UNIVERSIDAD</a>
+        <a href="#">DIRECTORIO</a>
+        <a href="#">ENSEÑANZA</a>
+        <a href="#">INVESTIGACIÓN</a>
+        <a href="#">CULTURA</a>
+        <a href="#">DESARROLLO</a>
+    </div>
 
     <div class="page-body">
-
         <aside class="sidebar">
             <div class="sidebar-title">Licenciaturas</div>
-            <a href="#" class="sidebar-item active">Ciencias Empresariales</a>
+            <a href="#" class="sidebar-item">Administración Municipal</a>
+            <a href="#" class="sidebar-item">Gobierno y Desarrollo Municipal</a>
+            <a href="#" class="sidebar-item">Administración Pública</a>
+            <a href="#" class="sidebar-item">Ciencias Biomédicas</a>
+            <a href="#" class="sidebar-item">Ciencias Empresariales</a>
+            <a href="#" class="sidebar-item">Enfermeria</a>
+            <a href="#" class="sidebar-item">Medicina</a>
             <a href="#" class="sidebar-item">Informática</a>
+            <a href="#" class="sidebar-item">Nutrición</a>
+            <a href="#" class="sidebar-item">Odontología</a>
         </aside>
 
         <main class="main-content">
+            <div class="breadcrumb">
+                <span>Enseñanza</span>
+                <i class="ti ti-chevron-right" aria-hidden="true"></i>
+                <span>Licenciaturas</span>
+                <i class="ti ti-chevron-right" aria-hidden="true"></i>
+                <span class="breadcrumb-current">Ingreso</span>
+            </div>
 
             <h1 class="main-heading">Ingreso a Licenciatura</h1>
 
             <p class="intro-text">
-                Bienvenido al proceso de ingreso a licenciatura.
+                Bienvenido al proceso de ingreso a licenciatura de la Universidad de la Sierra Sur.
+                Aquí encontrarás toda la información necesaria para iniciar tu trayectoria académica con nosotros.
             </p>
 
-
-            <div class="chat-placeholder">
-                <p>💬 Usa el asistente en la esquina inferior derecha</p>
+            <div class="info-cards">
+                <div class="info-card">
+                    <i class="ti ti-calendar-event" aria-hidden="true"></i>
+                    <div class="info-card-body">
+                        <div class="info-card-label">Convocatoria</div>
+                        <div class="info-card-value">Agosto 2025</div>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <i class="ti ti-file-description" aria-hidden="true"></i>
+                    <div class="info-card-body">
+                        <div class="info-card-label">Modalidad</div>
+                        <div class="info-card-value">Presencial</div>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <i class="ti ti-map-pin" aria-hidden="true"></i>
+                    <div class="info-card-body">
+                        <div class="info-card-label">Campus</div>
+                        <div class="info-card-value">Miahuatlán, Oaxaca</div>
+                    </div>
+                </div>
             </div>
 
+            <div class="section">
+                <h2 class="section-heading">Proceso de admisión</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">01</div>
+                        <div class="step-body">
+                            <div class="step-title">Registro en línea</div>
+                            <div class="step-desc">Completa el formulario de preinscripción en el portal institucional.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">02</div>
+                        <div class="step-body">
+                            <div class="step-title">Entrega de documentos</div>
+                            <div class="step-desc">Presenta tu expediente completo en el departamento de servicios
+                                escolares.</div>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">03</div>
+                        <div class="step-body">
+                            <div class="step-title">Examen de admisión</div>
+                            <div class="step-desc">Presenta el examen de conocimientos en la fecha asignada.</div>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">04</div>
+                        <div class="step-body">
+                            <div class="step-title">Publicación de resultados</div>
+                            <div class="step-desc">Consulta los resultados en el portal y completa tu inscripción.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-hint">
+                <i class="ti ti-message-circle" aria-hidden="true"></i>
+                <div>
+                    <strong>¿Tienes dudas?</strong> Usa el asistente virtual en la esquina inferior derecha para
+                    resolver tus preguntas sobre el proceso de ingreso.
+                </div>
+            </div>
         </main>
-
     </div>
-
-    </script>
 
 </body>
 
