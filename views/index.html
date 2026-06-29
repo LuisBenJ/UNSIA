@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingreso a Licenciatura — UNSIS</title>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
 <nav class="nav">
@@ -18,128 +19,47 @@
             <div class="nav-logo-sub">docendo discimus · Miahuatlán de Porfirio Díaz</div>
         </div>
     </div>
+
     <ul class="nav-links">
         <li><a href="#">Nuestra universidad</a></li>
         <li><a href="#">Directorio</a></li>
         <li><a href="#" class="active">Enseñanza</a></li>
-        <li><a href="#">Investigación</a></li>
-        <li><a href="#">Cultura</a></li>
-        <li><a href="#">Desarrollo</a></li>
     </ul>
-    <button class="nav-hamburger" id="hamburger">
-        <i class="ti ti-menu-2"></i>
-    </button>
 </nav>
-
-<div class="mobile-menu" id="mobile-menu">
-    <a href="#"><i class="ti ti-home"></i>Nuestra universidad</a>
-    <a href="#"><i class="ti ti-address-book"></i>Directorio</a>
-    <a href="#" class="active"><i class="ti ti-school"></i>Enseñanza</a>
-    <a href="#"><i class="ti ti-flask"></i>Investigación</a>
-    <a href="#"><i class="ti ti-music"></i>Cultura</a>
-    <a href="#"><i class="ti ti-trending-up"></i>Desarrollo</a>
-</div>
-
-<div class="breadcrumb">
-    <a href="#">Inicio</a>
-    <i class="ti ti-chevron-right"></i>
-    <a href="#">Enseñanza</a>
-    <i class="ti ti-chevron-right"></i>
-    <span style="color:#fff;">Ingreso a Licenciatura</span>
-</div>
 
 <div class="page-body">
 
 <aside class="sidebar">
-    <button class="sidebar-toggle" id="sidebar-toggle">
-        <i class="ti ti-list"></i> Licenciaturas
-        <i class="ti ti-chevron-down toggle-arrow"></i>
-    </button>
-    <div class="sidebar-list" id="sidebar-list">
-        <div class="sidebar-title">Licenciaturas</div>
-        <a href="#" class="sidebar-item"><i class="ti ti-building"></i>Administración Municipal</a>
-        <a href="#" class="sidebar-item"><i class="ti ti-building-community"></i>Gobierno y Desarrollo Municipal</a>
-        <a href="#" class="sidebar-item"><i class="ti ti-briefcase"></i>Administración Pública</a>
-        <a href="#" class="sidebar-item"><i class="ti ti-microscope"></i>Ciencias Biomédicas</a>
-        <a href="#" class="sidebar-item active"><i class="ti ti-chart-bar"></i>Ciencias Empresariales</a>
-        <a href="#" class="sidebar-item"><i class="ti ti-heart-rate-monitor"></i>Enfermería</a>
-        <a href="#" class="sidebar-item"><i class="ti ti-cpu"></i>Informática</a>
-        <a href="#" class="sidebar-item"><i class="ti ti-stethoscope"></i>Medicina</a>
-        <a href="#" class="sidebar-item"><i class="ti ti-salad"></i>Nutrición</a>
-        <a href="#" class="sidebar-item"><i class="ti ti-tooth"></i>Odontología</a>
-    </div>
+    <div class="sidebar-title">Licenciaturas</div>
+    <a href="#" class="sidebar-item active">Ciencias Empresariales</a>
+    <a href="#" class="sidebar-item">Informática</a>
 </aside>
 
 <main class="main-content">
+
     <h1 class="main-heading">Ingreso a Licenciatura</h1>
 
-```
-<div class="hero-img">
-    <div class="hero-img-placeholder">
-        <i class="ti ti-photo"></i>
-        <span>Coloca aquí tu imagen</span>
+    <p class="intro-text">
+        Bienvenido al proceso de ingreso a licenciatura.
+    </p>
+
+
+    <div class="chat-widget">
+        <div class="chat-header">Asistente</div>
+
+        <div class="chat-messages" id="chat-box"></div>
+
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Escribe..." />
+            <button onclick="sendMessage()">➤</button>
+        </div>
     </div>
-</div>
-
-<p class="intro-text">
-    Bienvenido al proceso de ingreso a licenciatura de la Universidad de la Sierra Sur.
-    Aquí encontrarás toda la información sobre requisitos, documentación y procedimientos
-    para iniciar tu formación profesional con nosotros.
-</p>
-
-<div class="cards-heading">Pasos para tu ingreso</div>
-<div class="cards-grid">
-    <a href="#" class="card">
-        <div class="card-icon"><i class="ti ti-file-text"></i></div>
-        <div class="card-title">Requisitos de ingreso</div>
-        <div class="card-arrow">Ver detalle <i class="ti ti-arrow-right"></i></div>
-    </a>
-    <a href="#" class="card">
-        <div class="card-icon"><i class="ti ti-clipboard-list"></i></div>
-        <div class="card-title">Documentación necesaria</div>
-        <div class="card-arrow">Ver detalle <i class="ti ti-arrow-right"></i></div>
-    </a>
-    <a href="#" class="card">
-        <div class="card-icon"><i class="ti ti-calendar"></i></div>
-        <div class="card-title">Fechas y periodos</div>
-        <div class="card-arrow">Ver detalle <i class="ti ti-arrow-right"></i></div>
-    </a>
-    <a href="#" class="card">
-        <div class="card-icon"><i class="ti ti-help-circle"></i></div>
-        <div class="card-title">Preguntas frecuentes</div>
-        <div class="card-arrow">Ver detalle <i class="ti ti-arrow-right"></i></div>
-    </a>
-</div>
-```
 
 </main>
 
 </div>
 
-<footer class="footer">
-    <span class="footer-text">© 2025 Universidad de la Sierra Sur — 22 años enseñando aprendemos</span>
-    <span class="footer-contact">
-        <i class="ti ti-phone"></i>
-        951 572 4100 · ext. 1202 / 1203
-    </span>
-</footer>
-
-<script>
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobile-menu');
-hamburger.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-    const icon = hamburger.querySelector('i');
-    icon.className = mobileMenu.classList.contains('open') ? 'ti ti-x' : 'ti ti-menu-2';
-});
-
-const sidebarToggle = document.getElementById('sidebar-toggle');
-const sidebarList = document.getElementById('sidebar-list');
-sidebarToggle.addEventListener('click', () => {
-    sidebarList.classList.toggle('open');
-    sidebarToggle.classList.toggle('open');
-});
-</script>
+<script src="js/chat.js"></script>
 
 </body>
 </html>
