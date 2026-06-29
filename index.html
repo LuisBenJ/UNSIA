@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingreso a Licenciatura — UNSIS</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: sans-serif;
+            color: #1a1a1a;
+            background: #f4f4f4;
+        }
+
+        /* ── NAV ── */
+        .nav {
+            background: #7a1a1a;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 56px;
+            position: relative;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo-circle {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 600;
+            color: #7a1a1a;
+            flex-shrink: 0;
+        }
+
+        .nav-logo-text {
+            color: #fff;
+            font-size: 13px;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .nav-logo-sub {
+            font-size: 10px;
+            font-weight: 400;
+            opacity: 0.75;
+            font-style: italic;
+        }
+
+        /* Desktop links */
+        .nav-links {
+            display: flex;
+            gap: 0;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 12px;
+            padding: 0 14px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid transparent;
+            transition: color 0.15s, border-color 0.15s;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-links a.active {
+            color: #fff;
+            border-color: #fff;
+        }
+
+        /* Hamburger button */
+        .nav-hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 4px;
+            line-height: 1;
+        }
+
+        /* Mobile menu dropdown */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: #6a1515;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu.open {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 14px;
+            padding: 13px 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mobile-menu a:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .mobile-menu a.active {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        /* ── BREADCRUMB ── */
+        .breadcrumb {
+            background: #5a1010;
+            padding: 9px 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.8);
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.65);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: #fff;
+        }
+
+        .breadcrumb i {
+            font-size: 11px;
+            opacity: 0.6;
+        }
+
+        /* ── SIDEBAR TOGGLE (mobile) ── */
+        .sidebar-toggle {
+            display: none;
+            width: 100%;
+            background: #fff;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            padding: 13px 1.25rem;
+            font-size: 13px;
+            font-weight: 600;
+            color: #7a1a1a;
+            cursor: pointer;
+            text-align: left;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sidebar-toggle i {
+            font-size: 16px;
+        }
+
+        .sidebar-toggle .toggle-arrow {
+            margin-left: auto;
+            transition: transform 0.2s;
+        }
+
+        .sidebar-toggle.open .toggle-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* ── LAYOUT ── */
+        .page-body {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            min-height: 520px;
+            background: #f4f4f4;
+        }
+
+        /* ── SIDEBAR ── */
+        .sidebar {
+            border-right: 1px solid #ddd;
+            padding: 1.5rem 0;
+            background: #fff;
+        }
+
+        .sidebar-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0 1.25rem 0.75rem;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-list {
+            display: block;
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 1.25rem;
+            font-size: 12.5px;
+            color: #555;
+            cursor: pointer;
+            border-left: 2px solid transparent;
+            transition: background 0.12s, color 0.12s;
+            text-decoration: none;
+        }
+
+        .sidebar-item:hover {
+            background: #f9f0f0;
+            color: #1a1a1a;
+        }
+
+        .sidebar-item.active {
+            border-left-color: #7a1a1a;
+            color: #7a1a1a;
+            background: #f9f0f0;
+            font-weight: 600;
+        }
+
+        .sidebar-item i {
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        /* ── MAIN ── */
+        .main-content {
+            padding: 2rem 2.5rem;
+        }
+
+        .main-heading {
+            font-size: 26px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* ── HERO IMAGE ── */
+        .hero-img {
+            width: 100%;
+            height: 220px;
+            background: #eedada;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .hero-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-img-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            opacity: 0.45;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .hero-img-placeholder i {
+            font-size: 40px;
+            color: #7a1a1a;
+        }
+
+        .hero-img-placeholder span {
+            font-size: 12px;
+            color: #7a1a1a;
+        }
+
+        /* ── INTRO TEXT ── */
+        .intro-text {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        /* ── CARDS ── */
+        .cards-heading {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 10px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: border-color 0.15s, box-shadow 0.15s;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            text-decoration: none;
+        }
+
+        .card:hover {
+            border-color: #7a1a1a;
+            box-shadow: 0 2px 8px rgba(122, 26, 26, 0.08);
+        }
+
+        .card-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            background: #f5e6e6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 4px;
+        }
+
+        .card-icon i {
+            font-size: 16px;
+            color: #7a1a1a;
+        }
+
+        .card-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: #1a1a1a;
+            line-height: 1.3;
+        }
+
+        .card-arrow {
+            font-size: 11px;
+            color: #999;
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .card-arrow i {
+            font-size: 11px;
+        }
+
+        /* ── FOOTER ── */
+        .footer {
+            background: #3d0d0d;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .footer-text {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-contact {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.6);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .footer-contact i {
+            font-size: 12px;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+
+            /* Nav: ocultar links, mostrar hamburguesa */
+            .nav-links {
+                display: none;
+            }
+
+            .nav-hamburger {
+                display: flex;
+                align-items: center;
+            }
+
+            .nav-logo-sub {
+                display: none;
+            }
+
+            /* Sidebar: colapsar en acordeón */
+            .page-body {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+                padding: 0;
+            }
+
+            .sidebar-title {
+                display: none;
+            }
+
+            .sidebar-toggle {
+                display: flex;
+            }
+
+            .sidebar-list {
+                display: none;
+            }
+
+            .sidebar-list.open {
+                display: block;
+            }
+
+            /* Main */
+            .main-content {
+                padding: 1.25rem 1rem;
+            }
+
+            .main-heading {
+                font-size: 20px;
+            }
+
+            /* Hero más pequeño */
+            .hero-img {
+                height: 160px;
+            }
+
+            /* Cards: 2 columnas en móvil */
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            /* Footer apilado */
+            .footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <script>
+        (function () { if (!window.chatbase || window.chatbase("getState") !== "initialized") { window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = [] } window.chatbase.q.push(arguments) }; window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } }) } const onLoad = function () { const script = document.createElement("script"); script.src = "https://www.chatbase.co/embed.min.js"; script.id = "Dakq9ZfSABEVAfNeeUoju"; script.domain = "www.chatbase.co"; document.body.appendChild(script) }; if (document.readyState === "complete") { onLoad() } else { window.addEventListener("load", onLoad) } })();
+    </script>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <div class="nav-logo">
+            <div class="nav-logo-circle">UNSIS</div>
+            <div class="nav-logo-text">
+                Universidad de la Sierra Sur
+                <div class="nav-logo-sub">docendo discimus · Miahuatlán de Porfirio Díaz</div>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Nuestra universidad</a></li>
+            <li><a href="#">Directorio</a></li>
+            <li><a href="#" class="active">Enseñanza</a></li>
+            <li><a href="#">Investigación</a></li>
+            <li><a href="#">Cultura</a></li>
+            <li><a href="#">Desarrollo</a></li>
+        </ul>
+        <button class="nav-hamburger" id="hamburger" aria-label="Abrir menú">
+            <i class="ti ti-menu-2"></i>
+        </button>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#"><i class="ti ti-home"></i>Nuestra universidad</a>
+        <a href="#"><i class="ti ti-address-book"></i>Directorio</a>
+        <a href="#" class="active"><i class="ti ti-school"></i>Enseñanza</a>
+        <a href="#"><i class="ti ti-flask"></i>Investigación</a>
+        <a href="#"><i class="ti ti-music"></i>Cultura</a>
+        <a href="#"><i class="ti ti-trending-up"></i>Desarrollo</a>
+    </div>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+        <a href="#">Inicio</a>
+        <i class="ti ti-chevron-right"></i>
+        <a href="#">Enseñanza</a>
+        <i class="ti ti-chevron-right"></i>
+        <span style="color:#fff;">Ingreso a Licenciatura</span>
+    </div>
+
+    <!-- BODY -->
+    <div class="page-body">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <!-- Botón solo visible en móvil -->
+            <button class="sidebar-toggle" id="sidebar-toggle">
+                <i class="ti ti-list"></i> Licenciaturas
+                <i class="ti ti-chevron-down toggle-arrow"></i>
+            </button>
+            <div class="sidebar-list" id="sidebar-list">
+                <div class="sidebar-title">Licenciaturas</div>
+                <a href="#" class="sidebar-item"><i class="ti ti-building"></i>Administración Municipal</a>
+                <a href="#" class="sidebar-item"><i class="ti ti-building-community"></i>Gobierno y Desarrollo
+                    Municipal</a>
+                <a href="#" class="sidebar-item"><i class="ti ti-briefcase"></i>Administración Pública</a>
+                <a href="#" class="sidebar-item"><i class="ti ti-microscope"></i>Ciencias Biomédicas</a>
+                <a href="#" class="sidebar-item active"><i class="ti ti-chart-bar"></i>Ciencias Empresariales</a>
+                <a href="#" class="sidebar-item"><i class="ti ti-heart-rate-monitor"></i>Enfermería</a>
+                <a href="#" class="sidebar-item"><i class="ti ti-cpu"></i>Informática</a>
+                <a href="#" class="sidebar-item"><i class="ti ti-stethoscope"></i>Medicina</a>
+                <a href="#" class="sidebar-item"><i class="ti ti-salad"></i>Nutrición</a>
+                <a href="#" class="sidebar-item"><i class="ti ti-tooth"></i>Odontología</a>
+            </div>
+        </aside>
+
+        <!-- MAIN -->
+        <main class="main-content">
+            <h1 class="main-heading">Ingreso a Licenciatura</h1>
+
+            <div class="hero-img">
+                <div class="hero-img-placeholder">
+                    <i class="ti ti-photo"></i>
+                    <span>Coloca aquí tu imagen</span>
+                </div>
+                <!-- <img src="tu-imagen.jpg" alt="Estudiantes UNSIS"> -->
+            </div>
+
+            <p class="intro-text">
+                Bienvenido al proceso de ingreso a licenciatura de la Universidad de la Sierra Sur.
+                Aquí encontrarás toda la información sobre requisitos, documentación y procedimientos
+                para iniciar tu formación profesional con nosotros.
+            </p>
+
+            <div class="cards-heading">Pasos para tu ingreso</div>
+            <div class="cards-grid">
+                <a href="#" class="card">
+                    <div class="card-icon"><i class="ti ti-file-text"></i></div>
+                    <div class="card-title">Requisitos de ingreso</div>
+                    <div class="card-arrow">Ver detalle <i class="ti ti-arrow-right"></i></div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card-icon"><i class="ti ti-clipboard-list"></i></div>
+                    <div class="card-title">Documentación necesaria</div>
+                    <div class="card-arrow">Ver detalle <i class="ti ti-arrow-right"></i></div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card-icon"><i class="ti ti-calendar"></i></div>
+                    <div class="card-title">Fechas y periodos</div>
+                    <div class="card-arrow">Ver detalle <i class="ti ti-arrow-right"></i></div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card-icon"><i class="ti ti-help-circle"></i></div>
+                    <div class="card-title">Preguntas frecuentes</div>
+                    <div class="card-arrow">Ver detalle <i class="ti ti-arrow-right"></i></div>
+                </a>
+            </div>
+        </main>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <span class="footer-text">© 2025 Universidad de la Sierra Sur — 22 años enseñando aprendemos</span>
+        <span class="footer-contact">
+            <i class="ti ti-phone"></i>
+            951 572 4100 · ext. 1202 / 1203
+        </span>
+    </footer>
+
+    <script>
+        // Hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            const icon = hamburger.querySelector('i');
+            icon.className = mobileMenu.classList.contains('open') ? 'ti ti-x' : 'ti ti-menu-2';
+        });
+
+        // Sidebar accordion (mobile)
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const sidebarList = document.getElementById('sidebar-list');
+        sidebarToggle.addEventListener('click', () => {
+            sidebarList.classList.toggle('open');
+            sidebarToggle.classList.toggle('open');
+        });
+    </script>
+
+</body>
+
+</html>
