@@ -1,21 +1,14 @@
-function sendMessage() {
-    const input = document.getElementById("user-input");
-    const chatBox = document.getElementById("chat-box");
+const express = require('express')
+const path = require('path')
+const app = express()
+const PORT = process.env.PORT || 3000
 
-    if (input.value.trim() === "") return;
+app.use(express.static(path.join(__dirname, 'public')))
 
-    // mensaje usuario
-    const userMsg = document.createElement("div");
-    userMsg.className = "msg-user";
-    userMsg.textContent = input.value;
-    chatBox.appendChild(userMsg);
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'index.html'))
+})
 
-    // respuesta bot (simulada)
-    const botMsg = document.createElement("div");
-    botMsg.className = "msg-bot";
-    botMsg.textContent = "Estoy procesando tu pregunta...";
-    chatBox.appendChild(botMsg);
-
-    input.value = "";
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en http://localhost:${PORT}`)
+})
